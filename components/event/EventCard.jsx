@@ -1,26 +1,27 @@
-import eventImage from '@/public/events/google-io-2023-1.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import ActionButton from '../common/ActionButton'
-const EventCard = () => {
+const EventCard = ({ event }) => {
     return (
         <div className="overflow-hidden rounded-md bg-[#242526]">
             <Image
-                src={eventImage}
-                alt='event-image'
+                src={event?.imageUrl}
+                alt={event?.name}
                 className="w-full"
+                width={500}
+                height={500}
             />
             <div className="p-3">
-                <Link href="/details/1" className="font-bold text-lg">
-                    Google I/O Extended
+                <Link href={`/details/${event?.id}`} className="font-bold text-lg">
+                    {event?.name}
                 </Link>
                 <p className="text-[#9C9C9C] text-sm mt-1">
-                    Rangpur, Dhaka, Bangladesh, Rangpur, Bangladesh
+                    {event?.location}
                 </p>
                 <div className="text-[#737373] text-sm mt-1">
-                    <span>1k Interested</span>
-                    <span>|</span>
-                    <span>40K Going</span>
+                    <span>{event?.interested_ids?.length ? event?.interested_ids?.length : "0"} Interested</span>
+                    <span>{" "}|{" "}</span>
+                    <span>{event?.going_ids?.length ? event?.going_ids?.length : "0"} Going</span>
                 </div>
                 <ActionButton />
             </div>

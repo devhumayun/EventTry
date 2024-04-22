@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 const ActionButton = ({ fromDetails }) => {
     return (
@@ -5,7 +6,9 @@ const ActionButton = ({ fromDetails }) => {
             <button className="w-full bg-indigo-600 hover:bg-indigo-800">
                 Interested
             </button>
-            <button className="w-full">Going</button>
+            <Link href="/payment" className=" text-center w-full bg-[#464849] py-2 px-2 rounded-md border border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:bg-[#3C3D3D] transition-colors active:translate-y-1">
+                Going
+            </Link>
         </div>
     )
 }

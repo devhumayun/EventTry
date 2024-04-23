@@ -1,6 +1,7 @@
 import { eventModel } from "@/models/event-models";
 import { userModel } from "@/models/user-models";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/utils";
+import mongoose from "mongoose";
 
 /**
  * get all events
@@ -37,4 +38,33 @@ export const findUserByCredentials = async (credentails) => {
     return replaceMongoIdInObject(user);
   }
   return null;
+};
+
+/**
+ * update  interested
+ */
+export const updateInterest = async (eventId, authId) => {
+  const event = await eventModel.findById(eventId);
+
+  if (event) {
+    const founddUser = event.interested_ids.find(
+      (id) => id.toString() === authId
+    );
+    if (founddUser) {
+      event.interested_ids.pull(new mongoose.Types.ObjectId(authId));
+    } else {
+      event.interested_ids.push(new mongoose.Types.ObjectId(authId));
+    }
+    event.save();
+  }
+};
+
+/**
+ * Update going
+ */
+export const updateGoing = async (eventId, authId) => {
+  const event = await eventModel.findById(eventId);
+  event.going_ids.push(new mongoose.Types.ObjectId(authId));
+
+  event.save();
 };

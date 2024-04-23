@@ -1,7 +1,8 @@
+import { addGoingToEvent } from "@/app/actions"
 
-const PaymentForm = () => {
+const PaymentForm = ({ eventId, auth }) => {
     return (
-        <form>
+        <form action={() => addGoingToEvent(eventId, auth)}>
             <div className="my-4 space-y-2">
                 <label htmlFor="name" className="block">
                     Name

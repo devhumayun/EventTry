@@ -25,7 +25,7 @@ const EventHero = ({ eventInfo }) => {
                         <span>{eventInfo?.going_ids?.length ? eventInfo?.going_ids?.length : "0"} Going</span>
                     </div>
                 </div>
-                <ActionButton fromDetails={true} />
+                <ActionButton eventId={eventInfo?.id} interested_ids={eventInfo?.interested_ids} fromDetails={true} />
             </div>
         </section>
     )

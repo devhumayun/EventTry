@@ -3,6 +3,15 @@ import EventHero from "@/components/event-details/EventHero";
 import Map from "@/components/event-details/Map";
 import { getEventById } from "@/db/queries";
 
+export const generateMetadata = async ({ params: { id } }) => {
+  const event = await getEventById(id);
+
+  return {
+    title: `Eventry - ${event?.name}`,
+    description: event?.details,
+  };
+};
+
 const EventDetailsPage = async ({ params: { id } }) => {
   const eventInfo = await getEventById(id);
 

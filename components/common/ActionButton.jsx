@@ -7,8 +7,8 @@ import { useState, useTransition } from "react"
 const ActionButton = ({ eventId, interested_ids, fromDetails, going_ids }) => {
     const { auth } = useAuth()
     const router = useRouter()
-    const isInterested = interested_ids.find((id) => id === auth?.id)
-    const isGoing = going_ids.find((id) => id === auth?.id)
+    const isInterested = interested_ids?.find((id) => id === auth?.id)
+    const isGoing = going_ids?.find((id) => id === auth?.id)
     const [interested, setInterested] = useState(isInterested)
     const [going, setGoing] = useState(isGoing)
     const [isPending, startTransition] = useTransition()

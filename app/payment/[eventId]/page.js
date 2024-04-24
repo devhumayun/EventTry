@@ -1,6 +1,16 @@
 "use client";
 import { useAuth } from "@/app/hooks";
 import PaymentForm from "@/components/common/PaymentForm";
+// import { getEventById } from "@/db/queries";
+
+// const generateMetadata = async ({ params: { eventId } }) => {
+//   const event = await getEventById(eventId);
+
+//   return {
+//     title: `Eventry/payment - ${event?.name}`,
+//     description: event?.details,
+//   };
+// };
 
 const PaymentPage = ({ params: { eventId } }) => {
   const { auth } = useAuth();

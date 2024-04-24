@@ -1,8 +1,8 @@
 import { getAllevents } from "@/db/queries";
 import EventCard from "./EventCard";
 
-const EventList = async () => {
-    const allEvents = await getAllevents()
+const EventList = async ({ query }) => {
+    const allEvents = await getAllevents(query)
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {

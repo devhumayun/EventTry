@@ -10,6 +10,7 @@ const EventCard = ({ event }) => {
                 className="w-full"
                 width={500}
                 height={500}
+                property={true}
             />
             <div className="p-3">
                 <Link href={`/details/${event?.id}`} className="font-bold text-lg">

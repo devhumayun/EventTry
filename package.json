@@ -16,6 +16,7 @@
     "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-loader-spinner": "^6.1.6",
     "resend": "^3.2.0",
     "sharp": "^0.33.3"
   },
